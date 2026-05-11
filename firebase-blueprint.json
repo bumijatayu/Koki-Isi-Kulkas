@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "Feedback": {
+      "title": "Feedback",
+      "description": "User feedback for generated recipes",
+      "type": "object",
+      "properties": {
+        "recipeTitle": { "type": "string" },
+        "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" }
+      },
+      "required": ["recipeTitle", "rating", "createdAt"]
+    }
+  },
+  "firestore": {
+    "feedbacks/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "Collection of user feedbacks"
+    }
+  }
+}
